@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
-hfadkhfasdhfjksdfh
+
 // //NOW THIS IS ALL COMPONENTS FROM THE LESSON//
 // const App = props => {
 //     const items = [
