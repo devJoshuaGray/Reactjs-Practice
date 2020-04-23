@@ -1,8 +1,125 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM, { render } from 'react-dom';
 import PropTypes from 'prop-types';
 
-// //NOW THIS IS ALL COMPONENTS FROM THE LESSON//
+const App = props => {
+    return <Text />;
+};
+
+
+class Text extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            text: 'Add your text in the box above'
+        };
+    }
+
+    update(event) {
+        this.setState({ text: event.target.value });
+    }
+
+    render() {
+        return (
+            <div>
+                <input type="text" onChange={this.update.bind(this)}/>
+                <h1>{this.state.text}</h1>
+            </div>
+        );
+    };
+};
+
+
+ReactDOM.render(<App />, document.getElementById('root'));
+
+///////////when assigning state constructor ensures the React.Component works correctly, the state within below component is used as storage for all the data in your component//////////////////////////
+//////////////be sure to call super(props) otherwise this.props will be undefined/////////////////////////////////////////////////////
+/////////////render was moved around from last examples///////////
+////////$ optional in this case on the render function//////////
+// const App = props => {
+//     return (
+//         <div>
+//             <BankAccount />
+//         </div>
+//     );
+// };
+
+// class BankAccount extends React.Component {
+//     constructor(props) {
+//         super(props);
+
+//         this.state = {
+//             savings: {
+//                 accountBalance: 1125.00
+//             },
+//             checking: {
+//                 accountBalance: 530.64
+//             },
+
+//             companysavings :{
+//                 array:[1,2,3,4,5]
+//             },
+//             test: 12345
+//         };
+//     }
+
+//     render() {
+//         return (
+//             <div>
+//                 <h3>Savings Account Balance: ${this.state.savings.accountBalance}</h3>
+//                 <h3>Checking Account Balance: {this.state.checking.accountBalance}</h3>
+//                 <h3>{this.state.companysavings.array[1]}</h3>
+//                 <h3>{this.state.test}</h3>
+//             </div>
+//         );
+//     }
+// }
+
+// ReactDOM.render(<App />, document.getElementById('class'));
+
+/////////////////////////////////////////////////////////////
+
+///////Entire class based component rendering//////////
+// const App = props => {
+//     return (
+//         <div>
+//             <Hello name="Joshua"/>
+//             <Hello name="Raven"/>
+//             <Hello name="Shepherd"/>
+//             <Hello name="Ellie"/>
+//         </div>
+//     );
+// };
+
+// class Hello extends React.Component {
+//     render() {
+//         return(
+//             <div>
+//                 <h1>Hello, {this.props.name}!</h1>
+//             </div>
+//         );
+//     }
+// }
+
+// ReactDOM.render(<App/>, document.getElementById('class'));
+////////////////////////////////////////////////////////////
+
+//////////class component example//////////////
+// class Hello extends React.Component {
+//     render() {}
+// }
+/////////////////////////////////////////////
+
+/////////STATELESS COMPONENT,the way we have been doing will change to a class based component see above example to be the norm now//////
+// const Hello = props => (
+//     <div>
+//         <h1>Hello, {props.name}</h1>
+//     </div>
+// );
+//////////////////////////////////////////
+
+//NOW THIS IS ALL COMPONENTS FROM THE LESSON//
 // const App = props => {
 //     const items = [
 //         { name: "Bread", price: 2.35 },
@@ -20,11 +137,16 @@ import PropTypes from 'prop-types';
 //             <List items={items} />
 //             <Employee name="Joshua" age="33" position="Manager"/>
 //             <GroceryList item1="beans" item2="buttermilk" item3="cornbread"/>
+//             <Hello name="Joshua"></Hello>
 //         </div>
 //     );
 // };
 
-
+// const Hello = props => (
+//     <div>
+//         <h1>Hello, {props.name}</h1>
+//     </div>
+// );
 // const Stuff = props => {
 //     const stuffitems = props.stuffs.map((item, index) => (
 //         <li key={index}>
